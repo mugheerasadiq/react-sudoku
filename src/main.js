@@ -8,7 +8,7 @@ import FullPageLoader from "./components/loader/loader.index";
 import DifficultyLevel from "./components/difficulty_level/Difficulty_level.index";
 import Header from "./components/header/Header.index";
 
-const { Title } = Typography;
+import Confetti from "react-confetti";
 
 const gridState = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -23,7 +23,7 @@ const gridState = [
 ];
 
 const Main = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [gridData, setGridData] = useState(gridState);
   const [level, setLevel] = useState("easy");
   const [hasWon, setHasWon] = useState(false);
@@ -31,7 +31,7 @@ const Main = () => {
   return (
     <>
       {loading && <FullPageLoader />}
-
+      {hasWon && <Confetti width={2000} height={1000} numberOfPieces={2000} />}
       <div className="main_container">
         <div className="main_wrapper">
           <Header />
@@ -45,12 +45,16 @@ const Main = () => {
             setLevel={setLevel}
             setGrid={setGridData}
             setLoader={setLoading}
+            setHasWon={setHasWon}
+            level={level}
           />
           <Footer
             level={level}
             grid={gridData}
+            hasWon={hasWon}
             setLoader={setLoading}
             setGrid={setGridData}
+            setHasWon={setHasWon}
           />
         </div>
       </div>

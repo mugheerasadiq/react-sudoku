@@ -6,7 +6,7 @@ import { SmileOutlined, CloseOutlined } from "@ant-design/icons";
 import { solveBoard, validateBoard } from "../../services/game.services";
 import { encodeParams } from "../../utils/encoder";
 
-const Footer = ({ setLoader, grid, setGrid, level }) => {
+const Footer = ({ setLoader, grid, setGrid, level, setHasWon, hasWon }) => {
   const onValidate = () => {
     try {
       setLoader(true);
@@ -14,13 +14,17 @@ const Footer = ({ setLoader, grid, setGrid, level }) => {
       validateBoard(encodedBoard)
         .then((data) => {
           setLoader(false);
-          if (data.status === "solved")
+          if (data.status === "solved") {
             notification.open({
               message: "Success",
               description: "Congratulations. Your solution is correct!",
               icon: <SmileOutlined style={{ color: "#4CAF50" }} />,
             });
-          else {
+            setHasWon(true);
+            setTimeout(() => {
+              setHasWon(false);
+            }, 10000);
+          } else {
             notification.open({
               message: "Failed",
               description: "Sorry. Your solution is incorrect!",
@@ -46,12 +50,17 @@ const Footer = ({ setLoader, grid, setGrid, level }) => {
         .then((data) => {
           setGrid(data.solution);
           setLoader(false);
-          if (data.status === "solved")
+          if (data.status === "solved") {
             notification.open({
               message: "Success",
               description: "Congratulations. The solution has found!",
               icon: <SmileOutlined style={{ color: "#4CAF50" }} />,
             });
+            setHasWon(true);
+            setTimeout(() => {
+              setHasWon(false);
+            }, 10000);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -75,7 +84,11 @@ const Footer = ({ setLoader, grid, setGrid, level }) => {
           >
             Validate
           </Button>
-          <Input value="Unsolved" size="small" style={{ height: "41px" }} />
+          <Input
+            value={hasWon ? "Solved" : "Unsolved"}
+            size="small"
+            style={{ height: "41px" }}
+          />
         </div>
         <div className="footer_btn">
           <Input

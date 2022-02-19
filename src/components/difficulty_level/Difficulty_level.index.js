@@ -1,11 +1,20 @@
-import React, { useEffect } from "react";
-import { Button, Typography, Input } from "antd";
+import React, { useEffect, useState } from "react";
+import { Tabs, Button, Typography, Radio } from "antd";
 
 import { getBoard } from "../../services/game.services";
 
 const { Title } = Typography;
+const { TabPane } = Tabs;
 
-const DifficultyLevel = ({ setLoader, setGrid }) => {
+const DifficultyLevel = ({
+  setLoader,
+  setGrid,
+  level,
+  setLevel,
+  setHasWon,
+}) => {
+  const [levelstate, setStateLevel] = useState(level);
+
   const fetchGrid = (level) => {
     try {
       setLoader(true);
@@ -24,10 +33,14 @@ const DifficultyLevel = ({ setLoader, setGrid }) => {
     }
   };
 
-  const onLevelClick = (event) => {
-    let level = event.target.innerText?.toLowerCase();
-    fetchGrid(level);
+  const onLevelClick = (e) => {
+    const value = e.target.value;
+    setStateLevel(value);
+    setLevel(value);
+    fetchGrid(value);
   };
+
+  useEffect(() => {}, [level]);
 
   return (
     <div className="difficulty_wrapper">
@@ -37,34 +50,48 @@ const DifficultyLevel = ({ setLoader, setGrid }) => {
       >
         Generate
       </Title>
-      <Button
-        size="large"
-        block
-        style={{ backgroundColor: "#93ef00", color: "white" }}
-        onClick={onLevelClick}
+
+      <Radio.Group
+        defaultValue={"easy"}
+        size={"large"}
+        onChange={onLevelClick}
+        style={{ marginBottom: 16 }}
       >
-        Easy
-      </Button>
+        <Radio.Button
+          value="easy"
+          style={{ width: "100px", backgroundColor: "#93ef00" }}
+          disabled={levelstate === "easy" ? true : false}
+        >
+          Easy
+        </Radio.Button>
+        <Radio.Button
+          value="medium"
+          style={{ width: "100px", backgroundColor: "#FFC107" }}
+          disabled={levelstate === "medium" ? true : false}
+        >
+          Medium
+        </Radio.Button>
+        <Radio.Button
+          value="hard"
+          style={{ width: "100px", backgroundColor: "#F44336" }}
+          disabled={levelstate === "hard" ? true : false}
+        >
+          Hard
+        </Radio.Button>
+        <Radio.Button
+          value="random"
+          style={{ width: "100px" }}
+          disabled={levelstate === "random" ? true : false}
+        >
+          Random
+        </Radio.Button>
+      </Radio.Group>
+
       <Button
         size="large"
-        block
-        style={{ backgroundColor: "#e6da00", color: "white" }}
-        onClick={onLevelClick}
-      >
-        Medium
-      </Button>
-      <Button size="large" block type="primary" danger onClick={onLevelClick}>
-        Hard
-      </Button>
-      <Button size="large" block type="primary" onClick={onLevelClick}>
-        Random
-      </Button>
-      <Button
-        size="large"
-        block
         danger
-        style={{ marginLeft: "10px" }}
-        onClick={() =>
+        style={{ marginLeft: "10px", width: "120px" }}
+        onClick={() => {
           setGrid([
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -75,8 +102,9 @@ const DifficultyLevel = ({ setLoader, setGrid }) => {
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0],
-          ])
-        }
+          ]);
+          setHasWon(false);
+        }}
       >
         Clear
       </Button>
