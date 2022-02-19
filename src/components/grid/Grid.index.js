@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "../box/Box.index";
 
-const Grid = ({ grid, onChange }) => {
+import { getBoard } from "../../services/game.services";
+
+const Grid = ({ onChange, grid, setLoader, setGrid }) => {
+  const fetchGrid = () => {
+    try {
+      setLoader(true);
+      getBoard("easy")
+        .then((data) => {
+          setGrid(data);
+          setLoader(false);
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoader(false);
+        });
+    } catch (err) {
+      console.log(err);
+      setLoader(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchGrid();
+  }, []);
+
   return (
     <table>
       <tbody>
@@ -13,7 +37,7 @@ const Grid = ({ grid, onChange }) => {
                   <Box
                     row={rowIndex}
                     col={colIndex}
-                    value={colValue}
+                    value={colValue !== 0 ? colValue : ""}
                     onChange={onChange}
                   />
                 );
