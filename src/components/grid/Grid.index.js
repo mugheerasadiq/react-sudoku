@@ -39,27 +39,29 @@ const Grid = ({ grid, setLoader, setGrid, level }) => {
   };
 
   return (
-    <table>
-      <tbody>
-        {grid.map((row, rowIndex) => {
-          return (
-            <tr key={rowIndex}>
-              {row.map((colValue, colIndex) => {
-                return (
-                  <Box
-                    key={colIndex}
-                    row={rowIndex}
-                    col={colIndex}
-                    value={colValue !== 0 ? colValue : ""}
-                    onChange={onValueChange}
-                  />
-                );
-              })}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+    <div className="table_wrapper">
+      <table>
+        <tbody>
+          {grid.map((row, rowIndex) => {
+            return (
+              <tr key={rowIndex}>
+                {row.map((colValue, colIndex) => {
+                  return (
+                    <Box
+                      key={colIndex}
+                      row={rowIndex}
+                      col={colIndex}
+                      value={colValue !== 0 ? colValue : ""}
+                      onChange={onValueChange}
+                    />
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

@@ -1,0 +1,15 @@
+
+.table_wrapper table {
+    border: 3px solid #D5EDEB;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #D5EDEB;
+  }
+
+.table_wrapper  td {
+    border: 1px solid #D5EDEB;
+    width: 70px;
+    height: 70px;				
+  }	
+  

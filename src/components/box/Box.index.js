@@ -1,5 +1,5 @@
 import React from "react";
-import { BoxColor } from "./color";
+import { BoxColor } from "../../utils/color";
 
 const getBoxColor = (row, col) => {
   let rowGroup = row - (row % 3); // uppermost row index of the box
@@ -12,10 +12,9 @@ const Box = ({ row, col, value, onChange, ...rest }) => {
     <td>
       <input
         name={`${row},${col}`}
+        className="box"
         style={{
           backgroundColor: getBoxColor(row, col),
-          fontSize: "3em",
-          fontWeight: "150",
         }}
         value={value}
         onChange={onChange}
