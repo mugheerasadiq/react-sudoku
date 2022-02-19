@@ -37,7 +37,6 @@ const Main = () => {
           <Header />
           <Grid
             grid={gridData}
-            onChange={(value) => console.log(value)}
             level={level}
             setGrid={setGridData}
             setLoader={setLoading}

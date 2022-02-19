@@ -3,7 +3,7 @@ import Box from "../box/Box.index";
 
 import { getBoard } from "../../services/game.services";
 
-const Grid = ({ onChange, grid, setLoader, setGrid }) => {
+const Grid = ({ grid, setLoader, setGrid }) => {
   const fetchGrid = () => {
     try {
       setLoader(true);
@@ -26,19 +26,33 @@ const Grid = ({ onChange, grid, setLoader, setGrid }) => {
     fetchGrid();
   }, []);
 
+  const onValueChange = (event) => {
+    // rowCol[0] is a row and rowCol[1] is a col
+    let rowCol = event.target.name.split(",");
+
+    const value = Number(event.target.value);
+
+    let tempGrid = [...grid];
+
+    tempGrid[rowCol[0]][rowCol[1]] = value;
+    setGrid(tempGrid);
+  };
+
   return (
     <table>
       <tbody>
         {grid.map((row, rowIndex) => {
+          console.log("asdasdasdasdasdasd");
           return (
             <tr key={rowIndex}>
               {row.map((colValue, colIndex) => {
                 return (
                   <Box
+                    key={colIndex}
                     row={rowIndex}
                     col={colIndex}
                     value={colValue !== 0 ? colValue : ""}
-                    onChange={onChange}
+                    onChange={onValueChange}
                   />
                 );
               })}

@@ -12,6 +12,7 @@ export const getBoard = (level) => {
         message: "Error",
         description: "Something went wrong while getting board",
       });
+      return [];
     });
 };
 

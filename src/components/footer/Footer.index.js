@@ -1,10 +1,10 @@
 import React from "react";
 import { CheckOutlined, ContainerOutlined } from "@ant-design/icons";
 import { Button, notification, Input } from "antd";
-import { SmileOutlined } from "@ant-design/icons";
+import { SmileOutlined, CloseOutlined } from "@ant-design/icons";
 
 import { solveBoard, validateBoard } from "../../services/game.services";
-import { encodeParams, encodeBoard } from "../../utils/encoder";
+import { encodeParams } from "../../utils/encoder";
 
 const Footer = ({ setLoader, grid, setGrid }) => {
   const onValidate = () => {
@@ -20,6 +20,13 @@ const Footer = ({ setLoader, grid, setGrid }) => {
               description: "Congratulations. Your solution is correct!",
               icon: <SmileOutlined style={{ color: "#4CAF50" }} />,
             });
+          else {
+            notification.open({
+              message: "Failed",
+              description: "Sorry. Your solution is incorrect!",
+              icon: <CloseOutlined style={{ color: "red" }} />,
+            });
+          }
         })
         .catch((err) => {
           console.log(err);

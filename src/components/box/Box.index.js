@@ -11,9 +11,10 @@ const Box = ({ row, col, value, onChange, ...rest }) => {
   return (
     <td>
       <input
+        name={`${row},${col}`}
         style={{
           backgroundColor: getBoxColor(row, col),
-          fontSize: "20px",
+          fontSize: "3em",
           fontWeight: "150",
         }}
         value={value}
