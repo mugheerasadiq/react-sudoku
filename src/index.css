@@ -45,22 +45,25 @@ input {
   padding: 0px 0px 0px 0px;
 }
 
-.container{
+.main_container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.main_wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
 .difficulty_wrapper{
-  width: 39%;
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
 }
 
 .footer_container{
-  width: 39%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,4 +96,13 @@ input {
   z-index: 1;
   opacity: 0.8;
   background-color: white;
+}
+
+.header_container{
+  margin-top: 30px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  
 }

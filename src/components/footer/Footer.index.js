@@ -1,6 +1,7 @@
 import React from "react";
 import { CheckOutlined, ContainerOutlined } from "@ant-design/icons";
 import { Button, notification, Input } from "antd";
+import { SmileOutlined } from "@ant-design/icons";
 
 import { solveBoard, validateBoard } from "../../services/game.services";
 import { encodeParams, encodeBoard } from "../../utils/encoder";
@@ -14,7 +15,11 @@ const Footer = ({ setLoader, grid, setGrid }) => {
         .then((data) => {
           setLoader(false);
           if (data.status === "solved")
-            notification.success("The solution has found!");
+            notification.open({
+              message: "Success",
+              description: "Congratulations. Your solution is correct!",
+              icon: <SmileOutlined style={{ color: "#4CAF50" }} />,
+            });
         })
         .catch((err) => {
           console.log(err);
@@ -35,7 +40,11 @@ const Footer = ({ setLoader, grid, setGrid }) => {
           setGrid(data.solution);
           setLoader(false);
           if (data.status === "solved")
-            notification.success("The solution has found!");
+            notification.open({
+              message: "Success",
+              description: "Congratulations. The solution has found!",
+              icon: <SmileOutlined style={{ color: "#4CAF50" }} />,
+            });
         })
         .catch((err) => {
           console.log(err);

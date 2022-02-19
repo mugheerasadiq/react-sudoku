@@ -31,7 +31,10 @@ const DifficultyLevel = ({ setLoader, setGrid, setLevel }) => {
 
   return (
     <div className="difficulty_wrapper">
-      <Title level={3} style={{ display: "inline", marginRight: "15px" }}>
+      <Title
+        level={3}
+        style={{ display: "inline", marginRight: "15px", color: "cadetblue" }}
+      >
         Generate
       </Title>
       <Button

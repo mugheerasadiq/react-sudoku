@@ -6,6 +6,7 @@ import { Button, Typography, Input } from "antd";
 import Footer from "./components/footer/Footer.index";
 import FullPageLoader from "./components/loader/loader.index";
 import DifficultyLevel from "./components/difficulty_level/Difficulty_level.index";
+import Header from "./components/header/Header.index";
 
 const { Title } = Typography;
 
@@ -31,20 +32,27 @@ const Main = () => {
     <>
       {loading && <FullPageLoader />}
 
-      <div className="container">
-        <Grid
-          grid={gridData}
-          onChange={(value) => console.log(value)}
-          level={level}
-          setGrid={setGridData}
-          setLoader={setLoading}
-        />
-        <DifficultyLevel
-          setLevel={setLevel}
-          setGrid={setGridData}
-          setLoader={setLoading}
-        />
-        <Footer grid={gridData} setLoader={setLoading} setGrid={setGridData} />
+      <div className="main_container">
+        <div className="main_wrapper">
+          <Header />
+          <Grid
+            grid={gridData}
+            onChange={(value) => console.log(value)}
+            level={level}
+            setGrid={setGridData}
+            setLoader={setLoading}
+          />
+          <DifficultyLevel
+            setLevel={setLevel}
+            setGrid={setGridData}
+            setLoader={setLoading}
+          />
+          <Footer
+            grid={gridData}
+            setLoader={setLoading}
+            setGrid={setGridData}
+          />
+        </div>
       </div>
     </>
   );
