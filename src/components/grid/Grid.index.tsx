@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Box from "../box/Box.index";
 
+// API Call
 import { getBoard } from "../../services/game.services";
 
-const Grid = ({ grid, setLoader, setGrid, level }) => {
-  const fetchGrid = () => {
+type Props = {
+  setLoader: (value: Boolean) => void,
+  setGrid: (value: any) => void,
+  grid: any,
+  level: string
+}
+
+const Grid = ({ grid, setLoader, setGrid, level }: Props) : JSX.Element => {
+  const fetchGrid = () : void => {
     try {
       setLoader(true);
       getBoard(level)
@@ -26,7 +34,7 @@ const Grid = ({ grid, setLoader, setGrid, level }) => {
     fetchGrid();
   }, []);
 
-  const onValueChange = (event) => {
+  const onValueChange = (event: any) : void => {
     // rowCol[0] is a row and rowCol[1] is a col
     let rowCol = event.target.name.split(",");
 
@@ -42,16 +50,16 @@ const Grid = ({ grid, setLoader, setGrid, level }) => {
     <div className="table_wrapper">
       <table>
         <tbody>
-          {grid.map((row, rowIndex) => {
+          {grid.map((row: any, rowIndex: number) => {
             return (
               <tr key={rowIndex}>
-                {row.map((colValue, colIndex) => {
+                {row.map((colValue: number, colIndex: number) => {
                   return (
                     <Box
                       key={colIndex}
                       row={rowIndex}
                       col={colIndex}
-                      value={colValue !== 0 ? colValue : ""}
+                      value={colValue !== 0 ? colValue : ''}
                       onChange={onValueChange}
                     />
                   );

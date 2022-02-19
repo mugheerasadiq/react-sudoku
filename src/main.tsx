@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+
+import Confetti from "react-confetti";
+
+// Components
 import Grid from "./components/grid/Grid.index";
-
-import { Button, Typography, Input } from "antd";
-
 import Footer from "./components/footer/Footer.index";
 import FullPageLoader from "./components/loader/loader.index";
 import DifficultyLevel from "./components/difficulty_level/Difficulty_level.index";
 import Header from "./components/header/Header.index";
-
-import Confetti from "react-confetti";
 
 const gridState = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,11 +21,11 @@ const gridState = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
-const Main = () => {
-  const [loading, setLoading] = useState(true);
+const Main = () : JSX.Element => {
+  const [loading, setLoading] = useState<Boolean>(true);
   const [gridData, setGridData] = useState(gridState);
-  const [level, setLevel] = useState("easy");
-  const [hasWon, setHasWon] = useState(false);
+  const [level, setLevel] = useState<string>("easy");
+  const [hasWon, setHasWon] = useState<Boolean>(false);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { Spin } from "antd";
 import React from "react";
 
-function FullPageLoader() {
+function FullPageLoader() : JSX.Element {
   return (
     <div className="full-page-loader">
       <Spin />

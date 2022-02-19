@@ -2,7 +2,7 @@ import React from "react";
 
 import logo from "../../assets/images/logo.jpg";
 
-const Header = () => {
+const Header = () : JSX.Element => {
   return (
     <div className="header_container">
       <h1

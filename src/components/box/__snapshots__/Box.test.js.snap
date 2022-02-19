@@ -11,7 +11,7 @@ exports[`All props are passed 1`] = `
         "backgroundColor": "#90CAF9",
       }
     }
-    value={1}
+    value="1"
   />
 </td>
 `;

@@ -1,10 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Tabs, Button, Typography, Radio } from "antd";
+import React, {  useState } from "react";
+import {  Button, Typography, Radio } from "antd";
 
+// API Call
 import { getBoard } from "../../services/game.services";
 
 const { Title } = Typography;
-const { TabPane } = Tabs;
+
+type Props = {
+  setLoader: (value: Boolean) => void,
+  setGrid: (value: any) => void,
+  setLevel: (value: string) => void,
+  setHasWon: (value: Boolean) => void,
+  level: String,
+}
 
 const DifficultyLevel = ({
   setLoader,
@@ -12,10 +20,10 @@ const DifficultyLevel = ({
   level,
   setLevel,
   setHasWon,
-}) => {
-  const [levelstate, setStateLevel] = useState(level);
+}: Props) : JSX.Element => {
+  const [levelstate, setStateLevel] = useState<String>(level);
 
-  const fetchGrid = (level) => {
+  const fetchGrid = (level: string) : void => {
     try {
       setLoader(true);
       getBoard(level)
@@ -33,14 +41,28 @@ const DifficultyLevel = ({
     }
   };
 
-  const onLevelClick = (e) => {
+  const onLevelClick = (e: any) : void => {
     const value = e.target.value;
     setStateLevel(value);
     setLevel(value);
     fetchGrid(value);
   };
 
-  useEffect(() => {}, [level]);
+  const onClear = () =>{
+    setGrid([
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]);
+    setHasWon(false);
+  }
+
 
   return (
     <div className="difficulty_wrapper">
@@ -91,20 +113,7 @@ const DifficultyLevel = ({
         size="large"
         danger
         style={{ marginLeft: "10px", width: "120px" }}
-        onClick={() => {
-          setGrid([
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-          ]);
-          setHasWon(false);
-        }}
+        onClick={onClear}
       >
         Clear
       </Button>

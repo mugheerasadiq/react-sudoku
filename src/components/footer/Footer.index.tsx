@@ -1,13 +1,25 @@
 import React from "react";
+
+// Antd Imports
 import { CheckOutlined, ContainerOutlined } from "@ant-design/icons";
 import { Button, notification, Input } from "antd";
 import { SmileOutlined, CloseOutlined } from "@ant-design/icons";
 
+// API Call
 import { solveBoard, validateBoard } from "../../services/game.services";
 import { encodeParams } from "../../utils/encoder";
 
-const Footer = ({ setLoader, grid, setGrid, level, setHasWon, hasWon }) => {
-  const onValidate = () => {
+type Props = {
+  setLoader: (value: Boolean) => void,
+  setGrid: (value: any) => void,
+  setHasWon: (value: Boolean) => void,
+  hasWon: Boolean,
+  grid: any,
+  level: string
+}
+
+const Footer = ({ setLoader, grid, setGrid, level, setHasWon, hasWon }: Props) : JSX.Element => {
+  const onValidate = () : void => {
     try {
       setLoader(true);
       let encodedBoard = encodeParams({ board: grid });
@@ -42,7 +54,7 @@ const Footer = ({ setLoader, grid, setGrid, level, setHasWon, hasWon }) => {
     }
   };
 
-  const onSolve = () => {
+  const onSolve = () : void => {
     try {
       setLoader(true);
       const encodedBoard = encodeParams({ board: grid });
