@@ -1,13 +1,62 @@
 import React from "react";
 import { CheckOutlined, ContainerOutlined } from "@ant-design/icons";
-import { Button, Typography, Input } from "antd";
+import { Button, notification, Input } from "antd";
 
-const Footer = () => {
+import { solveBoard, validateBoard } from "../../services/game.services";
+import { encodeParams, encodeBoard } from "../../utils/encoder";
+
+const Footer = ({ setLoader, grid, setGrid }) => {
+  const onValidate = () => {
+    try {
+      setLoader(true);
+      let encodedBoard = encodeParams({ board: grid });
+      validateBoard(encodedBoard)
+        .then((data) => {
+          setLoader(false);
+          if (data.status === "solved")
+            notification.success("The solution has found!");
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoader(false);
+        });
+    } catch (err) {
+      console.log(err);
+      setLoader(false);
+    }
+  };
+
+  const onSolve = () => {
+    try {
+      setLoader(true);
+      const encodedBoard = encodeParams({ board: grid });
+      solveBoard(encodedBoard)
+        .then((data) => {
+          setGrid(data.solution);
+          setLoader(false);
+          if (data.status === "solved")
+            notification.success("The solution has found!");
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoader(false);
+        });
+    } catch (err) {
+      console.log(err);
+      setLoader(false);
+    }
+  };
+
   return (
     <div className="footer_container">
       <div className="footer_wrapper">
         <div className="footer_btn">
-          <Button size="large" block icon={<CheckOutlined />}>
+          <Button
+            size="large"
+            block
+            icon={<CheckOutlined />}
+            onClick={onValidate}
+          >
             Validate
           </Button>
           <Input value="Unsolved" size="small" style={{ height: "41px" }} />
@@ -28,6 +77,7 @@ const Footer = () => {
             color: "white",
             height: "50px",
           }}
+          onClick={onSolve}
         >
           Solve
         </Button>

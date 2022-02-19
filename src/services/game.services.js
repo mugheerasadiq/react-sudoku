@@ -19,7 +19,7 @@ export const validateBoard = (board) => {
   return axios
     .post(`https://sugoku.herokuapp.com/validate`, board)
     .then(({ data, status }) => {
-      return data.board;
+      return data;
     })
     .catch((err) => {
       notification.error({
@@ -33,7 +33,7 @@ export const solveBoard = (board) => {
   return axios
     .post(`https://sugoku.herokuapp.com/solve`, board)
     .then(({ data, status }) => {
-      return data.board;
+      return data;
     })
     .catch((err) => {
       notification.error({

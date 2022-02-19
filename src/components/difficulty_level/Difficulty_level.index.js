@@ -61,7 +61,19 @@ const DifficultyLevel = ({ setLoader, setGrid, setLevel }) => {
         block
         danger
         style={{ marginLeft: "10px" }}
-        onClick={onLevelClick}
+        onClick={() =>
+          setGrid([
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          ])
+        }
       >
         Clear
       </Button>

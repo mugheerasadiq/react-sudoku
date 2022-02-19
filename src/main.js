@@ -10,21 +10,22 @@ import DifficultyLevel from "./components/difficulty_level/Difficulty_level.inde
 const { Title } = Typography;
 
 const gridState = [
-  [8, 0, 0, 4, 0, 6, 0, 0, 7],
-  [0, 0, 0, 0, 0, 0, 4, 0, 0],
-  [0, 1, 0, 0, 0, 0, 6, 5, 0],
-  [5, 0, 9, 0, 3, 0, 7, 8, 0],
-  [0, 0, 0, 0, 7, 0, 0, 0, 0],
-  [0, 4, 8, 0, 2, 0, 1, 0, 3],
-  [0, 5, 2, 0, 0, 0, 0, 9, 0],
-  [0, 0, 1, 0, 0, 0, 0, 0, 0],
-  [3, 0, 0, 9, 0, 2, 0, 0, 5],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
 const Main = () => {
   const [loading, setLoading] = useState(false);
-  const [gridData, setGridData] = useState([]);
+  const [gridData, setGridData] = useState(gridState);
   const [level, setLevel] = useState("easy");
+  const [hasWon, setHasWon] = useState(false);
 
   return (
     <>
@@ -43,7 +44,7 @@ const Main = () => {
           setGrid={setGridData}
           setLoader={setLoading}
         />
-        <Footer />
+        <Footer grid={gridData} setLoader={setLoading} setGrid={setGridData} />
       </div>
     </>
   );
