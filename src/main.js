@@ -47,6 +47,7 @@ const Main = () => {
             setLoader={setLoading}
           />
           <Footer
+            level={level}
             grid={gridData}
             setLoader={setLoading}
             setGrid={setGridData}

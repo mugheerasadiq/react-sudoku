@@ -3,11 +3,11 @@ import Box from "../box/Box.index";
 
 import { getBoard } from "../../services/game.services";
 
-const Grid = ({ grid, setLoader, setGrid }) => {
+const Grid = ({ grid, setLoader, setGrid, level }) => {
   const fetchGrid = () => {
     try {
       setLoader(true);
-      getBoard("easy")
+      getBoard(level)
         .then((data) => {
           setGrid(data);
           setLoader(false);
@@ -42,7 +42,6 @@ const Grid = ({ grid, setLoader, setGrid }) => {
     <table>
       <tbody>
         {grid.map((row, rowIndex) => {
-          console.log("asdasdasdasdasdasd");
           return (
             <tr key={rowIndex}>
               {row.map((colValue, colIndex) => {

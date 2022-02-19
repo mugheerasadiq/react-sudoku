@@ -6,7 +6,7 @@ import { SmileOutlined, CloseOutlined } from "@ant-design/icons";
 import { solveBoard, validateBoard } from "../../services/game.services";
 import { encodeParams } from "../../utils/encoder";
 
-const Footer = ({ setLoader, grid, setGrid }) => {
+const Footer = ({ setLoader, grid, setGrid, level }) => {
   const onValidate = () => {
     try {
       setLoader(true);
@@ -78,7 +78,11 @@ const Footer = ({ setLoader, grid, setGrid }) => {
           <Input value="Unsolved" size="small" style={{ height: "41px" }} />
         </div>
         <div className="footer_btn">
-          <Input value="Medium" size="small" style={{ height: "41px" }} />
+          <Input
+            value={level}
+            size="small"
+            style={{ height: "41px", textTransform: "capitalize" }}
+          />
           <Button size="large" block icon={<ContainerOutlined />}>
             Difficulty
           </Button>

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All props are passed 1`] = `
+<div
+  className="header_container"
+>
+  <h1
+    style={
+      Object {
+        "color": "cadetblue",
+        "fontSize": "42px",
+        "fontWeight": "bolder",
+      }
+    }
+  >
+    suGOku
+  </h1>
+  <img
+    height={150}
+    src="logo.jpg"
+    width={150}
+  />
+</div>
+`;

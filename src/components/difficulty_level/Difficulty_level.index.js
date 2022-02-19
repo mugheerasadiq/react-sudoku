@@ -5,7 +5,7 @@ import { getBoard } from "../../services/game.services";
 
 const { Title } = Typography;
 
-const DifficultyLevel = ({ setLoader, setGrid, setLevel }) => {
+const DifficultyLevel = ({ setLoader, setGrid }) => {
   const fetchGrid = (level) => {
     try {
       setLoader(true);

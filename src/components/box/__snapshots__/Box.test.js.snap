@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All props are passed 1`] = `
+<td>
+  <input
+    name="1,1"
+    onChange={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#90CAF9",
+        "fontSize": "3em",
+        "fontWeight": "150",
+      }
+    }
+    value={1}
+  />
+</td>
+`;
+
+exports[`No value is passed 1`] = `
+<td>
+  <input
+    name="undefined,undefined"
+    style={
+      Object {
+        "backgroundColor": undefined,
+        "fontSize": "3em",
+        "fontWeight": "150",
+      }
+    }
+  />
+</td>
+`;

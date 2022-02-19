@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All props are passed 1`] = `
+<div
+  className="difficulty_wrapper"
+>
+  <h3
+    className="ant-typography"
+    onClick={null}
+    style={
+      Object {
+        "WebkitLineClamp": undefined,
+        "color": "cadetblue",
+        "display": "inline",
+        "marginRight": "15px",
+      }
+    }
+  >
+    Generate
+  </h3>
+  <button
+    className="ant-btn ant-btn-default ant-btn-lg ant-btn-block"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#93ef00",
+        "color": "white",
+      }
+    }
+    type="button"
+  >
+    <span>
+      Easy
+    </span>
+  </button>
+  <button
+    className="ant-btn ant-btn-default ant-btn-lg ant-btn-block"
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e6da00",
+        "color": "white",
+      }
+    }
+    type="button"
+  >
+    <span>
+      Medium
+    </span>
+  </button>
+  <button
+    className="ant-btn ant-btn-primary ant-btn-lg ant-btn-block ant-btn-dangerous"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Hard
+    </span>
+  </button>
+  <button
+    className="ant-btn ant-btn-primary ant-btn-lg ant-btn-block"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Random
+    </span>
+  </button>
+  <button
+    className="ant-btn ant-btn-default ant-btn-lg ant-btn-block ant-btn-dangerous"
+    onClick={[Function]}
+    style={
+      Object {
+        "marginLeft": "10px",
+      }
+    }
+    type="button"
+  >
+    <span>
+      Clear
+    </span>
+  </button>
+</div>
+`;
