@@ -18,60 +18,153 @@ exports[`All props are passed 1`] = `
   >
     Generate
   </h3>
-  <button
-    className="ant-btn ant-btn-default ant-btn-lg ant-btn-block"
-    onClick={[Function]}
+  <div
+    className="ant-radio-group ant-radio-group-outline ant-radio-group-large"
     style={
       Object {
-        "backgroundColor": "#93ef00",
-        "color": "white",
+        "marginBottom": 16,
       }
     }
-    type="button"
   >
-    <span>
-      Easy
-    </span>
-  </button>
-  <button
-    className="ant-btn ant-btn-default ant-btn-lg ant-btn-block"
-    onClick={[Function]}
-    style={
-      Object {
-        "backgroundColor": "#e6da00",
-        "color": "white",
+    <label
+      className="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      style={
+        Object {
+          "backgroundColor": "#93ef00",
+          "width": "100px",
+        }
       }
-    }
-    type="button"
-  >
-    <span>
-      Medium
-    </span>
-  </button>
+    >
+      <span
+        className="ant-radio-button ant-radio-button-checked"
+        style={Object {}}
+      >
+        <input
+          checked={true}
+          className="ant-radio-button-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          type="radio"
+          value="easy"
+        />
+        <span
+          className="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Easy
+      </span>
+    </label>
+    <label
+      className="ant-radio-button-wrapper"
+      style={
+        Object {
+          "backgroundColor": "#FFC107",
+          "width": "100px",
+        }
+      }
+    >
+      <span
+        className="ant-radio-button"
+        style={Object {}}
+      >
+        <input
+          checked={false}
+          className="ant-radio-button-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          type="radio"
+          value="medium"
+        />
+        <span
+          className="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Medium
+      </span>
+    </label>
+    <label
+      className="ant-radio-button-wrapper"
+      style={
+        Object {
+          "backgroundColor": "#F44336",
+          "width": "100px",
+        }
+      }
+    >
+      <span
+        className="ant-radio-button"
+        style={Object {}}
+      >
+        <input
+          checked={false}
+          className="ant-radio-button-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          type="radio"
+          value="hard"
+        />
+        <span
+          className="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Hard
+      </span>
+    </label>
+    <label
+      className="ant-radio-button-wrapper"
+      style={
+        Object {
+          "width": "100px",
+        }
+      }
+    >
+      <span
+        className="ant-radio-button"
+        style={Object {}}
+      >
+        <input
+          checked={false}
+          className="ant-radio-button-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          type="radio"
+          value="random"
+        />
+        <span
+          className="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        Random
+      </span>
+    </label>
+  </div>
   <button
-    className="ant-btn ant-btn-primary ant-btn-lg ant-btn-block ant-btn-dangerous"
-    onClick={[Function]}
-    type="button"
-  >
-    <span>
-      Hard
-    </span>
-  </button>
-  <button
-    className="ant-btn ant-btn-primary ant-btn-lg ant-btn-block"
-    onClick={[Function]}
-    type="button"
-  >
-    <span>
-      Random
-    </span>
-  </button>
-  <button
-    className="ant-btn ant-btn-default ant-btn-lg ant-btn-block ant-btn-dangerous"
+    className="ant-btn ant-btn-default ant-btn-lg ant-btn-dangerous"
     onClick={[Function]}
     style={
       Object {
         "marginLeft": "10px",
+        "width": "120px",
       }
     }
     type="button"

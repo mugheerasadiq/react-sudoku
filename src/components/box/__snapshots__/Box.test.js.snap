@@ -3,13 +3,12 @@
 exports[`All props are passed 1`] = `
 <td>
   <input
+    className="box"
     name="1,1"
     onChange={[Function]}
     style={
       Object {
         "backgroundColor": "#90CAF9",
-        "fontSize": "3em",
-        "fontWeight": "150",
       }
     }
     value={1}
@@ -20,12 +19,11 @@ exports[`All props are passed 1`] = `
 exports[`No value is passed 1`] = `
 <td>
   <input
+    className="box"
     name="undefined,undefined"
     style={
       Object {
         "backgroundColor": undefined,
-        "fontSize": "3em",
-        "fontWeight": "150",
       }
     }
   />
